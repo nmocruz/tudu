@@ -1,0 +1,59 @@
+{
+  "name": "AureliaSpa",
+  "version": "0.0.0",
+  "dependencies": {
+    "aurelia-bootstrapper": "^2.0.1",
+    "aurelia-event-aggregator": "^1.0.1",
+    "aurelia-fetch-client": "^1.1.0",
+    "aurelia-framework": "^1.0.8",
+    "aurelia-history-browser": "^1.0.0",
+    "aurelia-loader-webpack": "^2.0.0",
+    "aurelia-logging-console": "^1.0.0",
+    "aurelia-pal-browser": "^1.1.0",
+    "aurelia-polyfills": "^1.1.1",
+    "aurelia-route-recognizer": "^1.1.0",
+    "aurelia-router": "^1.1.1",
+    "aurelia-templating-binding": "^1.2.0",
+    "aurelia-templating-resources": "^1.2.0",
+    "aurelia-templating-router": "^1.0.1",
+    "bootstrap": "^4.0.0-alpha.6",
+    "isomorphic-fetch": "^2.2.1",
+    "jquery": "^3.1.1",
+    "tether": "^1.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^7.0.4",
+    "@types/webpack": "^2.2.4",
+    "@types/whatwg-fetch": "^0.0.33",
+    "aspnet-webpack": "^1.0.27",
+    "aurelia-core-dependencies": "git+https://github.com/jods4/aurelia-webpack-build.git#aurelia-core-deps",
+    "aurelia-webpack-plugin": "git+https://github.com/aurelia/webpack-plugin.git#v2.0",
+    "awesome-typescript-loader": "^3.0.0-beta.18",
+    "copy-webpack-plugin": "^4.0.1",
+    "css": "^2.2.1",
+    "css-loader": "^0.26.1",
+    "expose-loader": "^0.7.1",
+    "extract-text-webpack-plugin": "^2.0.0-beta.4",
+    "file-loader": "^0.9.0",
+    "html-loader": "^0.4.4",
+    "html-webpack-plugin": "^2.26.0",
+    "json-loader": "^0.5.4",
+    "raw-loader": "^0.5.1",
+    "style-loader": "^0.13.1",
+    "to-string-loader": "^1.1.5",
+    "ts-loader": "^2.0.0",
+    "typescript": "^2.1.5",
+    "url-loader": "^0.5.7",
+    "webpack": "2.2.0",
+    "webpack-dependency-suite": "^1.5.0",
+    "webpack-hot-middleware": "^2.16.1"
+  },
+  "aurelia": {
+    "build": {
+      "includeDependencies": "aurelia-*"
+    }
+  },
+  "scripts": {
+    "web": "webpack-dev-server --hot --inline"
+  }
+}
