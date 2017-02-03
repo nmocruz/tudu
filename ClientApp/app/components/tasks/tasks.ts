@@ -1,4 +1,5 @@
-export class Counter {
+export class Tasks {
+    
     public currentCount = 0;
 
     public incrementCounter() {

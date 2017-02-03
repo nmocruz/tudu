@@ -6,21 +6,24 @@ import { HttpClient } from 'aurelia-fetch-client';
 import { inject } from 'aurelia-framework';
 
 @inject(HttpClient)
-export class Fetchdata {
-    public forecasts: WeatherForecast[];
+export class Plans {
+    public forecasts: Plan[];
 
     constructor(http: HttpClient) {
-        http.fetch('/api/SampleData/WeatherForecasts')
-            .then(result => result.json() as Promise<WeatherForecast[]>)
+        http.fetch('/api/plans')
+            .then(result => result.json() as Promise<Plan[]>)
             .then(data => {
                 this.forecasts = data;
             });
     }
 }
 
-interface WeatherForecast {
-    dateFormatted: string;
-    temperatureC: number;
-    temperatureF: number;
-    summary: string;
+enum PlanType{
+    dateRange, period, rotating
+}
+
+interface Plan {
+    type: PlanType;
+    length: number;
+    name: string; 
 }

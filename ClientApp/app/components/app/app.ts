@@ -14,19 +14,26 @@ export class App {
             nav: true,
             title: 'Home'
         }, {
-            route: 'counter',
-            name: 'counter',
-            settings: { icon: 'education' },
-            moduleId: '../counter/counter',
+            route: 'tasks',
+            name: 'tasks',
+            settings: { icon: 'tasks' },
+            moduleId: '../tasks/tasks',
             nav: true,
-            title: 'Counter'
+            title: 'Tasks'
         }, {
-            route: 'fetch-data',
-            name: 'fetchdata',
+            route: 'planning',
+            name: 'planning',
             settings: { icon: 'th-list' },
-            moduleId: '../fetchdata/fetchdata',
+            moduleId: '../planning/plans',
             nav: true,
-            title: 'Fetch data'
+            title: 'Planning'
+        }, {
+            route: 'allocation',
+            name: 'allocation',
+            settings: { icon: 'th-list' },
+            moduleId: '../allocation/allocations',
+            nav: true,
+            title: 'Allocation'
         }]);
 
         this.router = router;
