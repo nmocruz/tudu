@@ -2,11 +2,14 @@ import { Aurelia } from 'aurelia-framework';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap';
 import 'aurelia-bootstrapper';
+import { PLATFORM } from 'aurelia-pal';
 declare var IS_DEV_BUILD: boolean; // The value is supplied by Webpack during the build
 
 export function configure(aurelia: Aurelia) {
-    aurelia.use.standardConfiguration();
-
+    aurelia
+    .use
+    .standardConfiguration()
+    .plugin(PLATFORM.moduleName('aurelia-grid'));
     if (IS_DEV_BUILD) {
         aurelia.use.developmentLogging();
     }

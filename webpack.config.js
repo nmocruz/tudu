@@ -1,7 +1,7 @@
 var isDevBuild = process.argv.indexOf('--env.prod') < 0;
 var path = require('path');
 var webpack = require('webpack');
-const { AureliaPlugin } = require("aurelia-webpack-plugin");
+const { AureliaPlugin, ModuleDependenciesPlugin } = require("aurelia-webpack-plugin");
 const coreDeps = require("aurelia-core-dependencies");
 
 
@@ -26,9 +26,14 @@ module.exports = {
             { test: /\.less$/i, use: ["style-loader", "css-loader", "less-loader"] },
             { test: /\.ts$/i, include: /ClientApp/, use: ['ts-loader']},
             { test: /\.html$/i, use: 'html-loader' },
-            { test: /\.css$/i, use: [ 'style-loader', 'css-loader' ], exclude: /ClientApp/ },
+            { test: /\.css$/i, 
+                use: [ 'style-loader' ], 
+                issuer: {
+                   test: /\.[tj]s$/i,
+                }
+            },
+            { test: /\.css$/i, use: [ 'css-loader' ] },
             { test: /\.scss?$/, use: [ 'css-loader',  "sass-loader"], include: /ClientApp/ },
-            { test: /\.css?$/, use: [ 'css-loader'], include: /ClientApp/ },
             { test: /\.json$/i, use: 'json-loader' },
             { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' },
             
@@ -42,6 +47,9 @@ module.exports = {
         }),
         new AureliaPlugin({includeAll: "ClientApp" }),
         coreDeps,
+        new ModuleDependenciesPlugin({
+            "aurelia-grid": ["./grid","./grid.html", "./aurelia-grid.css"]
+        }),
     ].concat(isDevBuild ? [
         // Plugins that apply in development builds only
         new webpack.SourceMapDevToolPlugin({
