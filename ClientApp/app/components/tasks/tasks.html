@@ -1,6 +1,17 @@
 <template>
     <h1>Tasks</h1>
-
+    <page-header title="Customers" sub-title="List">
+        <ul slot="breadcrumb">
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="#/customer">Customer</a>
+            </li>
+            <li class="active">List</li>
+        </ul> 
+        <div slot="actions"></div> 
+    </page-header> 
     <grid grid-height.bind="auto" source-read.call="getLocalData($event)" selected-item.two-way="selected" test.two-way="test" >
         <grid-row class="my-custom-row" other-attribute="true">
             <grid-col can-sort="true" heading="Id" field="id" class="col-xs-1">${$item.id}</grid-col>

@@ -48,7 +48,8 @@ module.exports = {
         new AureliaPlugin({includeAll: "ClientApp" }),
         coreDeps,
         new ModuleDependenciesPlugin({
-            "aurelia-grid": ["./grid","./grid.html", "./aurelia-grid.css"]
+            "aurelia-grid": ["./grid","./grid.html"],
+            "grid.html": [ "./aurelia-grid.css"]
         }),
     ].concat(isDevBuild ? [
         // Plugins that apply in development builds only
